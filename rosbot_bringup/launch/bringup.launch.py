@@ -96,20 +96,12 @@ def generate_launch_description():
         namespace=namespace,
     )
 
-    laser_filter_config = PathJoinSubstitution(
-        [
-            rosbot_bringup,
-            "config",
-            "laser_filter.yaml",
-        ]
-    )
+    laser_filter_config = PathJoinSubstitution([rosbot_bringup, "config", "laser_filter.yaml"])
 
     laser_filter_node = Node(
         package="laser_filters",
         executable="scan_to_scan_filter_chain",
-        parameters=[
-            laser_filter_config,
-        ],
+        parameters=[laser_filter_config],
         remappings=[
             ("/tf", "tf"),
             ("/tf_static", "tf_static"),
