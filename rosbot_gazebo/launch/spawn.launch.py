@@ -13,20 +13,16 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import (
-    IncludeLaunchDescription,
-    DeclareLaunchArgument,
-)
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import (
-    PathJoinSubstitution,
     LaunchConfiguration,
+    PathJoinSubstitution,
     PythonExpression,
 )
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from nav2_common.launch import ReplaceString
 from launch_ros.actions import Node, SetParameter
-
-from ament_index_python.packages import get_package_share_directory
+from launch_ros.substitutions import FindPackageShare
+from nav2_common.launch import ReplaceString
 
 
 def generate_launch_description():
@@ -62,7 +58,7 @@ def generate_launch_description():
     )
 
     gz_remappings_file = PathJoinSubstitution(
-        [get_package_share_directory("rosbot_gazebo"), "config", "gz_remappings.yaml"]
+        [FindPackageShare("rosbot_gazebo"), "config", "gz_remappings.yaml"]
     )
 
     namespaced_gz_remappings_file = ReplaceString(
@@ -114,7 +110,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             PathJoinSubstitution(
                 [
-                    get_package_share_directory("rosbot_bringup"),
+                    FindPackageShare("rosbot_bringup"),
                     "launch",
                     "bringup.launch.py",
                 ]

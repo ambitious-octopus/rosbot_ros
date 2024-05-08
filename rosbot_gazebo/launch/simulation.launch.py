@@ -14,21 +14,21 @@
 
 from launch import LaunchDescription
 from launch.actions import (
-    IncludeLaunchDescription,
     DeclareLaunchArgument,
-    LogInfo,
     GroupAction,
+    IncludeLaunchDescription,
+    LogInfo,
     OpaqueFunction,
 )
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import (
     EnvironmentVariable,
-    PathJoinSubstitution,
     LaunchConfiguration,
+    PathJoinSubstitution,
     TextSubstitution,
 )
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import SetParameter
-from ament_index_python.packages import get_package_share_directory
+from launch_ros.substitutions import FindPackageShare
 from nav2_common.launch import ParseMultiRobotPose
 
 
@@ -51,7 +51,7 @@ def launch_setup(context, *args, **kwargs):
         PythonLaunchDescriptionSource(
             PathJoinSubstitution(
                 [
-                    get_package_share_directory("ros_gz_sim"),
+                    FindPackageShare("ros_gz_sim"),
                     "launch",
                     "gz_sim.launch.py",
                 ]
@@ -93,7 +93,7 @@ def launch_setup(context, *args, **kwargs):
                     PythonLaunchDescriptionSource(
                         PathJoinSubstitution(
                             [
-                                get_package_share_directory("rosbot_gazebo"),
+                                FindPackageShare("rosbot_gazebo"),
                                 "launch",
                                 "spawn.launch.py",
                             ]
@@ -135,7 +135,7 @@ def generate_launch_description():
         ),
     )
 
-    world_package = get_package_share_directory("husarion_office_gz")
+    world_package = FindPackageShare("husarion_gz_worlds")
     world_file = PathJoinSubstitution([world_package, "worlds", "husarion_world.sdf"])
     declare_world_arg = DeclareLaunchArgument(
         "world", default_value=world_file, description="SDF world file"

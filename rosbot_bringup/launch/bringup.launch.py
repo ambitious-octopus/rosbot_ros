@@ -13,11 +13,15 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch_ros.actions import Node, SetParameter
-from ament_index_python.packages import get_package_share_directory
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import EnvironmentVariable, LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import (
+    EnvironmentVariable,
+    LaunchConfiguration,
+    PathJoinSubstitution,
+)
+from launch_ros.actions import Node, SetParameter
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
@@ -50,8 +54,8 @@ def generate_launch_description():
         choices=["ignition-gazebo", "gazebo-classic", "webots"],
     )
 
-    rosbot_controller = get_package_share_directory("rosbot_controller")
-    rosbot_bringup = get_package_share_directory("rosbot_bringup")
+    rosbot_controller = FindPackageShare("rosbot_controller")
+    rosbot_bringup = FindPackageShare("rosbot_bringup")
 
     mecanum = LaunchConfiguration("mecanum")
     declare_mecanum_arg = DeclareLaunchArgument(
