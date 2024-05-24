@@ -22,7 +22,10 @@ import subprocess
 import sys
 
 import requests
-from launch_ros.substitutions import FindPackageShare
+from launch.substitutions import (
+    PathJoinSubstitution,
+)
+from launch_ros.substitutions import FindPackageShare 
 
 # Global variable to hold the subprocess reference
 subproc = None
@@ -53,7 +56,8 @@ def find_firmware_file():
     package_install_directory = FindPackageShare("rosbot_utils")
 
     # Construct the path to the firmware directory
-    firmware_dir = os.path.join(package_install_directory, "firmware")
+    # firmware_dir = os.path.join(package_install_directory, "firmware")
+    firmware_dir = PathJoinSubstitution([package_install_directory, "firmware"])
     firmware_files = glob.glob(os.path.join(firmware_dir, f"firmware-{firmware_version}.bin"))
 
     if not firmware_files:
