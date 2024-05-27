@@ -1,13 +1,14 @@
-# rosbot_ros #
+# rosbot_ros
 
-ROS packages for ROSbot 2.0 and ROSbot 2.0 Pro.
+This is a fork of the ROS packages for ROSbot 2.0 and ROSbot 2.0 Pro. Additional features and improvements have been added to the original repository. Theese chnages include:
+- A Dockerfile for building the ROSbot packages in a Docker container
+- A run.sh script for running the ROSbot packages in a Docker container
+- A couple of new worlds for the Gazebo simulation
+- A example folder with a couple python scripts for experimenting with the ultralytics package
 
-Demonstrations of **docker-compose** configurations are shown in [rosbot-docker](https://github.com/husarion/rosbot-docker/tree/ros1/demo) repo.
-It presents how to run an autonomous mapping and navigation demo with ROSbot and Navigation2 stack.
+# Quick start
 
-# Quick start (simulation) #
-
-## Installation ##
+## Installation 
 
 We assume that you are working on Ubuntu 16.04 and already have installed ROS Kinetic. If not, follow the [ROS install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 

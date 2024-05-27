@@ -1,0 +1,1 @@
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/workspace/gazebo_models_worlds_collection/models && roslaunch launch_world.launch
