@@ -8,7 +8,7 @@ model = YOLO("yolov8l.pt")
 rospy.init_node('integration')
 time.sleep(1)
 
-publisher = rospy.Publisher("/detection", Image, queue_size=5)
+publisher = rospy.Publisher("/ultralytics/detection", Image, queue_size=5)
 
 def callback(data):
     array = ros_numpy.numpify(data)
