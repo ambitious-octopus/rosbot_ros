@@ -3,8 +3,8 @@ import time
 from ultralytics import YOLO
 import ros_numpy
 from sensor_msgs.msg import Image
-detection_model = YOLO("yolov8n.pt")
-segmentation_model = YOLO("yolov8n-seg.pt")
+detection_model = YOLO("yolov8x.pt")
+segmentation_model = YOLO("yolov8x-seg.pt")
 rospy.init_node('integration')
 time.sleep(1)
 
@@ -28,4 +28,4 @@ def callback(data):
 rospy.Subscriber("/camera/color/image_raw", Image, callback)
 
 while True:
-    pass
+    rospy.spin()

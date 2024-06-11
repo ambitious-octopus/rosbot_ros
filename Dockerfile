@@ -14,4 +14,5 @@ RUN apt-get install -y pip git
 RUN /usr/bin/pip install ultralytics
 RUN /usr/bin/pip install ipython numpy==1.20.3
 RUN /usr/bin/pip install git+https://github.com/eric-wieser/ros_numpy.git
+RUN /usr/bin/pip install open3d==0.13
 WORKDIR /workspace
