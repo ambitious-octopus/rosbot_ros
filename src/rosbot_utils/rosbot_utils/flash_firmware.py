@@ -14,15 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import argparse
-import glob
-import os
-import signal
 import subprocess
+import os
 import sys
-
+import argparse
+import signal
+import glob
 import requests
-from launch_ros.substitutions import FindPackageShare
+import ament_index_python.packages
 
 # Global variable to hold the subprocess reference
 subproc = None
@@ -50,7 +49,9 @@ def download_firmware(firmware_url, firmware_path):
 
 def find_firmware_file():
     # Find the install directory of 'rosbot_utils' package
-    package_install_directory = FindPackageShare("rosbot_utils")
+    package_install_directory = ament_index_python.packages.get_package_share_directory(
+        "rosbot_utils"
+    )
 
     # Construct the path to the firmware directory
     firmware_dir = os.path.join(package_install_directory, "firmware")
