@@ -27,14 +27,14 @@ For implementing with the real robot, please use the [original repository](https
 - **Simulation Support:** Compatible with popular simulation platforms including Gazebo and MuJoCo.
 - **Docker Integration:** The repository is optimized for use with Docker, ensuring a consistent and reproducible setup.
 
-### Installation
+
 
 <div align="center">
   <p>
       <img width="100%" src="https://github.com/ambitious-octopus/rosbot_ros/assets/3855193/55e8b00a-2df6-432a-b382-13d4a82c76f5" alt="YOLO Vision banner"></a>
   </p>
 </div>
-
+### Installation
 #### Prerequisites
 
 Ensure you have Docker installed on your system. If Docker is not already installed, follow the [official Docker installation guide](https://docs.docker.com/get-docker/) for your operating system.
