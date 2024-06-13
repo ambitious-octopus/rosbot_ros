@@ -1,10 +1,18 @@
+<div align="center">
+  <p>
+    <a href="https://github.com/ultralytics/assets/releases/tag/v8.2.0" target="_blank">
+      <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" alt="YOLO Vision banner"></a>
+  </p>
+<div>
+
+
 ### Repository Overview
 
-Welcome to the ROS ultralytics testing playground! This repository is designed as a comprehensive environment for experimenting with various models. The examples provided in this repository are crafted to function seamlessly across different settings and with diverse sensor inputs, whether operating in the real world or within simulation environments such as Gazebo, MuJoCo, or other simulators.
+Welcome to the ROS [Ultralytics](https://github.com/ultralytics/ultralytics) testing playground! This repository is designed as a comprehensive environment for experimenting with various models. The examples provided in this repository are crafted to function seamlessly across different settings and with diverse sensor inputs, whether operating in the real world or within simulation environments such as Gazebo, MuJoCo, or other simulators.
 
 ### ROSbot_ROS 🤖🚀
 
-This is a fork of the ROS packages for ROSbot 2.0 and ROSbot 2.0 Pro. Additional features and improvements have been added to the original repository for testing with the Ultralytics repository. 
+This is a fork of the ROS packages for ROSbot 2.0 and ROSbot 2.0 Pro. Additional features and improvements have been added to the original repository for testing with the [Ultralytics](https://github.com/ultralytics/ultralytics) repository. 
 These changes include:
 - 🐋 A Dockerfile for building the ROSbot packages in a Docker container
 - 🏃‍♂️ A run.sh script for running the ROSbot packages in a Docker container
@@ -20,6 +28,13 @@ For implementing with the real robot, please use the [original repository](https
 - **Docker Integration:** The repository is optimized for use with Docker, ensuring a consistent and reproducible setup.
 
 ### Installation
+
+<div align="center">
+  <p>
+    <a href="https://github.com/ultralytics/assets/releases/tag/v8.2.0" target="_blank">
+      <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" alt="YOLO Vision banner"></a>
+  </p>
+<div>
 
 #### Prerequisites
 
