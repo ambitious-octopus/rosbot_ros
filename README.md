@@ -1,135 +1,77 @@
-# rosbot_ros
+### Repository Overview
 
-This is a fork of the ROS packages for ROSbot 2.0 and ROSbot 2.0 Pro. Additional features and improvements have been added to the original repository. Theese chnages include:
-- A Dockerfile for building the ROSbot packages in a Docker container
-- A run.sh script for running the ROSbot packages in a Docker container
-- A couple of new worlds for the Gazebo simulation
-- A example folder with a couple python scripts for experimenting with the ultralytics package
+Welcome to the ROS ultralytics testing playground! This repository is designed as a comprehensive environment for experimenting with various models. The examples provided in this repository are crafted to function seamlessly across different settings and with diverse sensor inputs, whether operating in the real world or within simulation environments such as Gazebo, MuJoCo, or other simulators.
 
-# Quick start
+### ROSbot_ROS 🤖🚀
 
-## Installation 
+This is a fork of the ROS packages for ROSbot 2.0 and ROSbot 2.0 Pro. Additional features and improvements have been added to the original repository for testing with the Ultralytics repository. 
+These changes include:
+- 🐋 A Dockerfile for building the ROSbot packages in a Docker container
+- 🏃‍♂️ A run.sh script for running the ROSbot packages in a Docker container
+- 🌍 A couple of new worlds for the Gazebo simulation
+- 📂 A new examples folder with many examples for experimenting with the Ultralytics package
 
-We assume that you are working on Ubuntu 16.04 and already have installed ROS Kinetic. If not, follow the [ROS install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu)
+For implementing with the real robot, please use the [original repository](https://github.com/husarion/rosbot).
 
-Prepare the repository:
-```bash
-cd ~
-mkdir ros_workspace
-mkdir ros_workspace/src
-cd ~/ros_workspace/src
-catkin_init_workspace
-cd ~/ros_workspace
-catkin_make
-```
+### Key Features
 
-Above commands should execute without any warnings or errors.
+- **Versatile Examples:** The scripts located in the `examples` directory are highly adaptable, allowing you to test them in multiple environments and with a variety of sensors.
+- **Simulation Support:** Compatible with popular simulation platforms including Gazebo and MuJoCo.
+- **Docker Integration:** The repository is optimized for use with Docker, ensuring a consistent and reproducible setup.
 
-Clone this repository to your workspace:
+### Installation
 
-```bash
-cd ~/ros_workspace/src
-git clone https://github.com/husarion/rosbot_ros.git -b noetic
-```
+#### Prerequisites
 
-Install dependencies:
+Ensure you have Docker installed on your system. If Docker is not already installed, follow the [official Docker installation guide](https://docs.docker.com/get-docker/) for your operating system.
+
+#### Setting Up the Docker Environment
+
+To build and launch the Docker container, execute the following command:
 
 ```bash
-cd ~/ros_workspace
-rosdep install --from-paths src --ignore-src -r -y
+./run.sh
 ```
 
-Build the workspace:
+This script will handle the creation and initialization of the Docker container, providing a contained and controlled environment for your testing needs.
+
+#### Running Simulations
+
+Once you have successfully accessed the Docker container, you can start the simulation by running:
 
 ```bash
-cd ~/ros_workspace
-catkin_make
+./simulate.sh
 ```
 
-From this moment you can use rosbot simulations. Please remember that each time, when you open new terminal window, you will need to load system variables:
+This script performs the following actions:
+
+1. **Launch Gazebo:** Launches the Gazebo simulation environment.
+2. **Calls the Bringup Robot:** Initializes the robot within the simulation.
+3. **Opens RViz:** Opens RViz for visualization, enabling you to observe and interact with the simulated environment.
+
+At this stage, you are ready to test the example scripts provided in the `examples` directory.
+
+### Example Scripts
+
+The `examples` directory contains a variety of scripts designed to showcase different functionalities and use cases. These scripts are written to be modular and can be adapted for different sensors and environments.
 
 ```bash
-source ~/ros_workspace/devel/setup.sh
+cd examples
 ```
 
-## Creating, saving and loading the Map with Gazebo ##
+#### Navigation
 
-Run the following commands below. Use the teleop to move the robot around to create an accurate and thorough map.
-
-In Terminal 1, launch the Gazebo simulation:
-
-```bash
-roslaunch rosbot_bringup rosbot_rviz_gmapping.launch
-```
-
-In Terminal 2, start teleop and drive the ROSbot, observe in Rviz as the map is created:
+Sitting still is boring, right? Spice things up by opening a terminal and launching:
 
 ```bash
 roslaunch rosbot_navigation rosbot_teleop.launch
 ```
 
-When you are satisfied with created map, you can save it. Open new terminal and save the map to some given path: 
+This script lets you control your ROSbot using your keyboard, turning your ideas into action in no time!
 
-```bash
-rosrun map_server map_saver -f ~/ros_workspace/src/rosbot_ros/src/rosbot_navigation/maps/test_map
-```
 
-Now to make saved map loading possible you have to close all previous terminals and run the following commands below. Once loaded, use rviz to set 2D Nav Goal and the robot will autonomously reach the indicated position
+### Additional Information
 
-In Terminal 1, launch the Gazebo simulation
+- **Extensibility:** The repository is designed to be easily extendable. You can add your own models and scripts to further customize your testing environment.
+- **Community Support:** If you encounter any issues or have questions, feel free to open an issue on the repository or reach out to the community for support.
 
-```bash
-roslaunch rosbot_description rosbot_rviz_amcl.launch
-```
-
->**Tip:**
->
->If you have any problems with laser scan it probably means that you don't have a dedicated graphic card (or lack appropriate drivers). If that's the case then you'll have to change couple of things in `/rosbot_description/urdf/rosbot_gazebo` file: <br><br>
->Find:   `<!-- If you cant't use your GPU comment RpLidar using GPU and uncomment RpLidar using CPU gazebo plugin. -->`
-next coment RpLidar using GPU using `<!-- -->` from `<gazebo>` to `</gazebo>` like below:
-> ```xml
-> <!-- gazebo reference="rplidar">
->   <sensor type="gpu_ray" name="head_rplidar_sensor">
->     <pose>0 0 0 0 0 0</pose>
->     <visualize>false</visualize>
->     <update_rate>40</update_rate>
->     <ray>
->       <scan>
->         <horizontal>
->           <samples>720</samples>
->           <resolution>1</resolution>
->           <min_angle>-3.14159265</min_angle>
->           <max_angle>3.14159265</max_angle>
->         </horizontal>
->       </scan>
->       <range>
->         <min>0.2</min>
->         <max>30.0</max>
->         <resolution>0.01</resolution>
->       </range>
->       <noise>
->         <type>gaussian</type>
->         <mean>0.0</mean>
->         <stddev>0.01</stddev>
->       </noise>
->     </ray>
->     <plugin name="gazebo_ros_head_rplidar_controller" 
->filename="libgazebo_ros_gpu_laser.so">
->      <topicName>/rosbot/laser/scan</topicName>
->       <frameName>rplidar</frameName>
->     </plugin>
->   </sensor>
-> </gazebo -->
->```
->
->Now uncomment RpLidar using CPU plugin removing `<!-- -->`.
->
->If you want to make your laser scan visible just change:
->```xml
-><visualize>false</visualize>
->```
->to:
->```xml
-><visualize>true</visualize>
->```
->in the same plug in.
