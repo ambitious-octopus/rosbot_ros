@@ -31,8 +31,7 @@ For implementing with the real robot, please use the [original repository](https
 
 <div align="center">
   <p>
-    <a href="![Screenshot from 2024-06-13 10-14-05](https://github.com/ambitious-octopus/rosbot_ros/assets/3855193/55e8b00a-2df6-432a-b382-13d4a82c76f5)" target="_blank">
-      <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" alt="YOLO Vision banner"></a>
+      <img width="100%" src="https://github.com/ambitious-octopus/rosbot_ros/assets/3855193/55e8b00a-2df6-432a-b382-13d4a82c76f5" alt="YOLO Vision banner"></a>
   </p>
 </div>
 
