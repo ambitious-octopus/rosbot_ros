@@ -35,13 +35,6 @@ For implementing with the real robot, please use the [original repository](https
 
 
 
-<div align="center">
-  <p>
-      <img width="100%" src="https://github.com/ambitious-octopus/rosbot_ros/assets/3855193/55e8b00a-2df6-432a-b382-13d4a82c76f5" alt="YOLO Vision banner"></a>
-  </p>
-</div>
-
-
 ### Installation
 
 #### Prerequisites
@@ -75,6 +68,13 @@ This script performs the following actions:
 At this stage, you are ready to test the example scripts provided in the `examples` directory.
 
 ### Example Scripts
+
+<div align="center">
+  <p>
+      <img width="100%" src="https://github.com/ambitious-octopus/rosbot_ros/assets/3855193/55e8b00a-2df6-432a-b382-13d4a82c76f5" alt="YOLO Vision banner"></a>
+  </p>
+</div>
+
 
 The `examples` directory contains a variety of scripts designed to showcase different functionalities and use cases. These scripts are written to be modular and can be adapted for different sensors and environments.
 
