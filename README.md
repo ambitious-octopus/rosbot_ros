@@ -10,6 +10,12 @@
 
 Welcome to the ROS [Ultralytics](https://github.com/ultralytics/ultralytics) testing playground! This repository is designed as a comprehensive environment for experimenting with various models. The examples provided in this repository are crafted to function seamlessly across different settings and with diverse sensor inputs, whether operating in the real world or within simulation environments such as Gazebo, MuJoCo, or other simulators.
 
+<div align="center">
+  <p>
+      <img width="100%" src="https://github.com/ambitious-octopus/rosbot_ros/assets/3855193/764fce17-ed8d-40e0-b599-89c7eff7a879" alt="YOLO Vision banner"></a>
+  </p>
+</div>
+
 ### ROSbot_ROS 🤖🚀
 
 This is a fork of the ROS packages for ROSbot 2.0 and ROSbot 2.0 Pro. Additional features and improvements have been added to the original repository for testing with the [Ultralytics](https://github.com/ultralytics/ultralytics) repository. 
@@ -34,7 +40,10 @@ For implementing with the real robot, please use the [original repository](https
       <img width="100%" src="https://github.com/ambitious-octopus/rosbot_ros/assets/3855193/55e8b00a-2df6-432a-b382-13d4a82c76f5" alt="YOLO Vision banner"></a>
   </p>
 </div>
+
+
 ### Installation
+
 #### Prerequisites
 
 Ensure you have Docker installed on your system. If Docker is not already installed, follow the [official Docker installation guide](https://docs.docker.com/get-docker/) for your operating system.
