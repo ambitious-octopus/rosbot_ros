@@ -31,4 +31,6 @@ RUN vcs import src < src/rosbot/rosbot_hardware.repos && \
 
 RUN MYDISTRO=${PREFIX:-ros}; MYDISTRO=${MYDISTRO//-/} && \
     source /opt/$MYDISTRO/$ROS_DISTRO/setup.bash && \
-    colcon build 
+    colcon build
+
+WORKDIR /workspace
