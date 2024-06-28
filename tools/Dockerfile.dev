@@ -33,4 +33,7 @@ RUN MYDISTRO=${PREFIX:-ros}; MYDISTRO=${MYDISTRO//-/} && \
     source /opt/$MYDISTRO/$ROS_DISTRO/setup.bash && \
     colcon build
 
+COPY requirements.txt /tmp/requirements.txt
+RUN /usr/bin/pip3 install -r /tmp/requirements.txt
+
 WORKDIR /workspace
